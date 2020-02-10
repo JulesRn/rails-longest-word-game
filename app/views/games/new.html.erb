@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center">
+  <div class="container m-4 text-center card p-3" style="max-width: 800px">
+    <h1>Des chiffres et des lettres : rude édition</h1>
+    <div class="d-flex justify-content-center">
+      <% @letters.each do |letter| %>
+        <p class="card py-2 px-4 text-center m-1 bg-primary text-white"><%= letter.capitalize %></p>
+      <% end %>
+    </div>
+    <h3>Quel mot peux-tu faire ?</h3>
+
+    <form action="/score" method='POST' class="input-group mb-3" >
+      <input type="text" name="word" class="form-control" placeholder="Word" aria-label="Word" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <input value ='Play' class="btn btn-outline-secondary rounded-right" type="submit">
+      </div>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+  </div>
+</div>
